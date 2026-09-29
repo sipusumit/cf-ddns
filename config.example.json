@@ -1,0 +1,12 @@
+{
+  "api_token": "API_TOKEN",
+  "zone": "example.com",
+  "records": ["home.example.com"],
+  "interface": "wlo1",
+  "prefix": null,
+  "allow_temporary": false,
+  "check_interval": 60,
+  "resync_interval": 3600,
+  "ttl": 1,
+  "proxied": false
+}

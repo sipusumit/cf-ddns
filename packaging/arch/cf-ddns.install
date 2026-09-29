@@ -1,0 +1,6 @@
+post_install() {
+  echo ">> cp /usr/share/doc/cf-ddns/config.example.json /etc/cf-ddns/config.json"
+  echo ">> Edit it, then: chmod 600 /etc/cf-ddns/config.json"
+  echo ">> Test with:    cf-ddns --detect -c /etc/cf-ddns/config.json"
+  echo ">> Start with:   systemctl enable --now cf-ddns"
+}

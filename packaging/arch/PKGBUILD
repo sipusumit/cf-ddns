@@ -1,0 +1,20 @@
+# Maintainer: Your Name <you@example.com>
+pkgname=cf-ddns
+pkgver=1.0.0
+pkgrel=1
+pkgdesc='Cloudflare IPv6 dynamic DNS daemon driven by local address changes'
+arch=('any')
+url='https://github.com/sipusumit/cf-ddns'
+license=('MIT')
+depends=('python' 'systemd')
+install=cf-ddns.install
+source=("$pkgname-$pkgver.tar.gz::$url/archive/refs/tags/v$pkgver.tar.gz")
+sha256sums=('SKIP')   # run `updpkgsums` after tagging
+
+package() {
+  cd "$pkgname-$pkgver"
+  install -Dm755 cf-ddns.py "$pkgdir/usr/bin/cf-ddns"
+  install -Dm644 cf-ddns.service "$pkgdir/usr/lib/systemd/system/cf-ddns.service"
+  install -Dm644 config.example.json "$pkgdir/usr/share/doc/$pkgname/config.example.json"
+  install -dm700 "$pkgdir/etc/cf-ddns"
+}

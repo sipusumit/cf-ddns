@@ -1,0 +1,25 @@
+[Unit]
+Description=Cloudflare IPv6 DDNS updater
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+DynamicUser=yes
+LoadCredential=config.json:/etc/cf-ddns/config.json
+ExecStart=/usr/bin/cf-ddns --config %d/config.json
+Restart=always
+RestartSec=30
+
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+PrivateDevices=true
+ProtectKernelTunables=true
+ProtectControlGroups=true
+RestrictAddressFamilies=AF_INET AF_INET6 AF_NETLINK
+CapabilityBoundingSet=
+
+[Install]
+WantedBy=multi-user.target
