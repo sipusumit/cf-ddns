@@ -9,12 +9,13 @@ license=('MIT')
 depends=('python' 'systemd')
 install=cf-ddns.install
 source=("$pkgname-$pkgver.tar.gz::$url/archive/refs/tags/v$pkgver.tar.gz")
-sha256sums=('SKIP')   # run `updpkgsums` after tagging
+sha256sums=('1d817be7f38bca068f72df0d207d4d4ac6b1205c85cef8c079cb74c0acc268f0')
 
 package() {
   cd "$pkgname-$pkgver"
   install -Dm755 cf-ddns.py "$pkgdir/usr/bin/cf-ddns"
   install -Dm644 cf-ddns.service "$pkgdir/usr/lib/systemd/system/cf-ddns.service"
   install -Dm644 config.example.json "$pkgdir/usr/share/doc/$pkgname/config.example.json"
+  install -Dm644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
   install -dm700 "$pkgdir/etc/cf-ddns"
 }
