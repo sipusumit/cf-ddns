@@ -1,6 +1,6 @@
 # Maintainer: Your Name <you@example.com>
 pkgname=cf-ddns
-pkgver=1.0.1
+pkgver=1.0.2
 pkgrel=1
 pkgdesc='Cloudflare IPv6 dynamic DNS daemon driven by local address changes'
 arch=('any')
